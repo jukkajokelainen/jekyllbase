@@ -37,10 +37,10 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
  * Wait for jekyll-build, then launch the Server
  */
 gulp.task('browser-sync', ['jekyll-build'], function() {
-	browserSync({
-		server: {
-			baseDir: '_site'
-		}
+	browserSync.init({
+		server: '_site',
+		port: process.env.PORT,
+		host: process.env.IP
 	});
 });
 
